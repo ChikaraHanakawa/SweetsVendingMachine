@@ -1,0 +1,41 @@
+# =====================
+# uv (Python environment manager)
+# =====================
+.venv/
+.uv/
+#uv.lock
+
+# =====================
+# Python cache / build
+# =====================
+__pycache__/
+*.py[cod]
+*.so
+
+build/
+dist/
+*.egg-info/
+
+# =====================
+# Test / coverage
+# =====================
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# OS / Editor
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# DataBase
+# =====================
+database/
