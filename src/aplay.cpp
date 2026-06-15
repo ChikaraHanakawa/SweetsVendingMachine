@@ -27,11 +27,10 @@ void chime_wav(){
         std::cerr << "[Error] 音声ファイル読み込みに失敗" << std::endl;;
     }
 
-    music.setVolume(50.f);
     music.setLoop(true);
     music.play();
 
     while(music.getStatus() == sf::Music::Playing){
-        sf::sleep(sf::seconds(1));
+        sf::sleep(sf::seconds(200));
     }
 }

@@ -19,7 +19,7 @@ int main(){
     std::signal(SIGTERM, signal_handler);
 
     std::thread reader(nfc_py_read);
-    std::thread timer(what_time);
+    std::thread timer(get_current_time);
     reader.join();
     timer.join();
 

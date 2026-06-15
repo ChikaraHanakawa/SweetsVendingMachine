@@ -5,9 +5,19 @@
 
 std::atomic<bool> running{true};
 
-void feedback_play_wav(int state){       
+void feedback_play_wav(int state){
     std::string path = "database/wav/";
-    path += "good_children.wav";
+    switch(state){
+        case 0 :
+            path += "reg_student.wav";
+            break;
+        case 1 :
+            path += "not_reg_student.wav";
+            break;
+        case 2 :
+            path += "error_student.wav";
+            break;
+    }
     zundamon_wav(path);  
 }                           
 

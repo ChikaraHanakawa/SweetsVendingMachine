@@ -14,4 +14,6 @@ struct OutputTimeObject{
         int ret_min;
 };
 
-OutputTimeObject what_time();
+OutputTimeObject get_current_time();
+
+OutputTimeObject get_leave_time();
