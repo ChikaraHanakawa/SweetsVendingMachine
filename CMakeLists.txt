@@ -22,9 +22,9 @@ add_executable(VendingMachine
     src/leaving_time.cpp
 )
 
-target_link_libraries(VendingMachine PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
+target_include_directories(VendingMachine PRIVATE
     ${CMAKE_SOURCE_DIR}
+    ${CMAKE_SOURCE_DIR}/include
 )
 
 target_link_libraries(VendingMachine PRIVATE

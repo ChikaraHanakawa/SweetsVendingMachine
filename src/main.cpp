@@ -1,13 +1,14 @@
+#include "common.h"
+#include "nfc_bridge.h"
+#include "aplay.h"
+#include "leaving_time.h"
 #include <algorithm>
 #include <thread>
 #include <csignal>
 #include <atomic>
 #include <chrono>
 
-#include "common.h"
-#include "nfc_bridge.h"
-#include "aplay.h"
-#include "leaving_time.h"
+std::atomic<bool> running{true};
 
 void signal_handler(int signum){
     std::cout << "\n[Info] 終了シグナルを受信 (signal: " << signum << ")" << std::endl;
@@ -19,7 +20,8 @@ int main(){
     std::signal(SIGTERM, signal_handler);
 
     std::thread reader(nfc_py_read);
-    std::thread timer(get_current_time);
+    std::thread timer(loop_timer);
+
     reader.join();
     timer.join();
 

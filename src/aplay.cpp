@@ -4,7 +4,7 @@
 void zundamon_wav(std::string path){
     sf::SoundBuffer buffer;
 
-    if(!buffer.loadFromFile(path)){
+    if (!buffer.loadFromFile(path)){
         std::cerr << "[Error] 音声ファイル読み込みに失敗" << std::endl;
     }
 
@@ -14,7 +14,7 @@ void zundamon_wav(std::string path){
     std::cout << "WAVファイルを再生中・・・" << std::endl;
     sound.play();
 
-    while(sound.getStatus() == sf::Sound::Status::Playing){
+    while (sound.getStatus() == sf::Sound::Status::Playing){
         sf::sleep(sf::milliseconds(100));
     }
     std::cout << "再生終了" << std::endl;
@@ -23,14 +23,14 @@ void zundamon_wav(std::string path){
 void chime_wav(){
     std::string path = "database/wav/good_children.wav";
     sf::Music music;
-    if(!music.openFromFile(path)){
+    if (!music.openFromFile(path)){
         std::cerr << "[Error] 音声ファイル読み込みに失敗" << std::endl;;
     }
 
-    music.setLoop(true);
+    music.setLoop(false);
     music.play();
 
-    while(music.getStatus() == sf::Music::Playing){
+    while (music.getStatus() == sf::Music::Playing){
         sf::sleep(sf::seconds(200));
     }
 }
