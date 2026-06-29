@@ -10,7 +10,7 @@ extern std::atomic<bool> running;
 struct OutputTimeObject{    
     public:
         OutputTimeObject(int x, int y, int z) : ret_day(x), ret_hrs(y), ret_min(z) {};
-        ~OutputTimeObject(){};
+        ~OutputTimeObject() {};
         int get_Day() const { return ret_day; }
         int get_Hour() const { return ret_hrs; }
         int get_Min() const { return ret_min; } 

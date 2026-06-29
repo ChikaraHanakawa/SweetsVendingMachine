@@ -1,6 +1,8 @@
 #include "common.h"
 #include "nfc_bridge.h"
 #include "aplay.h"
+#include "read_csv.h"
+
 #include <pybind11/embed.h>
 
 extern std::atomic<bool> running;
@@ -22,6 +24,10 @@ void feedback_play_wav(int state){
 }                           
 
 void nfc_py_read(){     
+    std::cout << "[Read] CSVファイルを読み込みます" << std::endl;
+    InputCsvObject member = reading_csv();
+    std::map<std::string, std::string> table = member.get_lab_member();
+
     pybind11::scoped_interpreter guard{};
     std::cout << "[pybind11] 認証システムを開始します" << std::endl;
     try {
@@ -41,7 +47,7 @@ void nfc_py_read(){
 
             if (!student_id.empty() && student_id.rfind("Error", 0) != 0){
                 std::cout << "[Success] 学籍番号: " << student_id << std::endl;
-                /*if (lab_member_id.count(student_id)){
+                if (member.find(student_id) == member.end()) {
                     std::cout << "[Registered] 登録済みメンバーです" << std::endl;
                     feedback_play_wav(0);
                 } else {
@@ -50,7 +56,7 @@ void nfc_py_read(){
                 }
             } else {
                 std::cerr << "[Error] 読み取り失敗; " << student_id << std::endl;
-                feedback_play_wav(2);*/
+                feedback_play_wav(2);
             }
             std::this_thread::sleep_for(std::chrono::seconds(2));
         }

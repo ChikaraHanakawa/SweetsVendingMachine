@@ -2,6 +2,7 @@
 #include "nfc_bridge.h"
 #include "aplay.h"
 #include "leaving_time.h"
+
 #include <algorithm>
 #include <thread>
 #include <csignal>
