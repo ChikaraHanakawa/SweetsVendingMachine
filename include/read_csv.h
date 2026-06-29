@@ -9,7 +9,7 @@ struct InputCsvObject {
         std::map<std::string, std::string> get_lab_member() const {
             return lab_member;
         };         
-        void set_labmember(std::string& id, std::string& name) {
+        void set_lab_member(std::string& id, std::string& name) {
             lab_member.insert(std::make_pair(id, name));
         };
     private:

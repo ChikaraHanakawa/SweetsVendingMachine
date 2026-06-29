@@ -47,7 +47,7 @@ void nfc_py_read(){
 
             if (!student_id.empty() && student_id.rfind("Error", 0) != 0){
                 std::cout << "[Success] 学籍番号: " << student_id << std::endl;
-                if (member.find(student_id) == member.end()) {
+                if (table.find(student_id) != table.end()) {
                     std::cout << "[Registered] 登録済みメンバーです" << std::endl;
                     feedback_play_wav(0);
                 } else {

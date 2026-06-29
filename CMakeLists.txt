@@ -20,6 +20,7 @@ add_executable(VendingMachine
     src/aplay.cpp
     src/nfc_bridge.cpp
     src/leaving_time.cpp
+    src/read_csv.cpp
 )
 
 target_include_directories(VendingMachine PRIVATE
