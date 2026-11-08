@@ -30,6 +30,15 @@ C++ と Python を pybind11 で連携し，NFC カード読み取りは Python�
 > **注意:** 利用者情報を管理していた `database/db.h` は Notion 管理へ移行するため削除済みです．
 > Notion 連携が未実装のため，現状では認証・照合は動作しません（後述「メンバー登録」を参照）．
 
+## 筐体（ハードウェア）
+
+3D プリント製の筐体（1 レーン・スパイラル式，菓子袋 5 個収納）を [`hardware/`](hardware/) にまとめています．
+PaSoRi・LED・スピーカーを収めた操作パネルを，正面から見て右側に付けます．
+
+- 組み立て手順: [`hardware/README.md`](hardware/README.md)
+- 部品表: [`hardware/BOM.md`](hardware/BOM.md)
+- 印刷用 STL: [`hardware/stl/`](hardware/stl/)
+
 ## 依存関係
 
 ### システムパッケージ
@@ -141,6 +150,11 @@ API トークン・データベース ID の設定方法など）を追記しま
 ├── uv.lock               # 依存パッケージのロックファイル
 ├── LICENSE
 ├── README.md
+├── hardware/             # 筐体（3D プリント部品）
+│   ├── README.md         # 組み立て手順
+│   ├── BOM.md            # 部品表
+│   ├── acrylic_window.dxf # 前面窓のアクリル板の加工図
+│   └── stl/              # 印刷用 STL（ファイル名 = 部品名）
 ├── include/              # ヘッダ（宣言・変数・STL等の定義）
 │   ├── common.h          # 共通定義（STL 等）
 │   ├── aplay.h           # 音声再生の宣言
